@@ -1,0 +1,299 @@
+@import 'katex/dist/katex.min.css';
+@import 'rehype-callouts/theme/obsidian';
+@import './starry-night.css';
+@import '@wooorm/starry-night/style/both';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 30% 96%;
+    --foreground: 220 35% 35%;
+    --card: 210 25% 97%;
+    --card-foreground: 220 20% 20%;
+    --popover: 210 25% 97%;
+    --popover-foreground: 220 20% 20%;
+    --primary: 210 90% 60%;
+    --primary-foreground: 210 25% 98%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 220 20% 25%;
+    --muted: 210 20% 90%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 210 50% 80%;
+    --accent-foreground: 220 15% 30%;
+    --destructive: 0 70% 70%;
+    --destructive-foreground: 210 25% 98%;
+    --border: 210 25% 90%;
+    --input: 210 25% 90%;
+    --ring: 210 60% 60%;
+    --radius: 0.5rem;
+    --chart-1: 210 60% 60%;
+    --chart-2: 210 70% 40%;
+    --chart-3: 210 50% 40%;
+    --chart-4: 210 60% 45%;
+    --chart-5: 210 70% 50%;
+    --font-geist-sans: 'GeistSans', sans-serif;
+    --font-geist-mono: 'GeistMono', monospace;
+    --font-departure-mono: 'DepartureMono', monospace;
+    --selection-bg: 210 65% 85%;
+    --progress-bar: 210 100% 50%;
+    --visited-link-color: 280 70% 45%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 60 15% 90%;
+    --card: 220 13% 23%;
+    --card-foreground: 60 9% 98%;
+    --popover: 220 13% 23%;
+    --popover-foreground: 60 9% 98%;
+    --primary: 32 85% 50%;
+    --primary-foreground: 220 13% 18%;
+    --secondary: 220 20% 30%;
+    --secondary-foreground: 60 9% 98%;
+    --muted: 220 15% 25%;
+    --muted-foreground: 60 5% 80%;
+    --accent: 32 85% 50%;
+    --accent-foreground: 220 15% 20%;
+    --destructive: 0 68% 50%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 220 13% 28%;
+    --input: 220 13% 23%;
+    --ring: 32 95% 44%;
+    --chart-1: 30 95% 40%;
+    --chart-2: 30 80% 50%;
+    --chart-3: 30 70% 60%;
+    --chart-4: 30 60% 65%;
+    --chart-5: 30 50% 45%;
+    --selection-bg: 32 90% 30%;
+    --progress-bar: 32 95% 50%;
+    --visited-link-color: 280 40% 50%;
+  }
+
+  ::selection {
+    background-color: hsl(var(--selection-bg));
+  }
+
+  html {
+    overflow-y: scroll;
+  }
+
+  .blog-link {
+    text-decoration-color: transparent;
+    width: 100%;
+  }
+
+  ul.blog-list {
+    padding: 0 !important;
+  }
+
+  .blog-list-item {
+    display: flex;
+    padding: 0.25rem 0;
+  }
+
+  .custom-link {
+    @apply relative inline-flex flex-row items-center justify-start content-start w-fit text-primary transition-colors;
+    text-decoration-color: transparent;
+  }
+  .custom-link::before {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0 -z-10 bg-primary/10 transition-all duration-200 ease-out;
+  }
+
+  .custom-link:hover::before {
+    @apply h-full;
+  }
+
+  .font-geist-sans {
+    font-family: var(--font-geist-sans);
+  }
+
+  .font-geist-mono {
+    font-family: var(--font-geist-mono);
+  }
+
+  .font-departure-mono {
+    font-family: var(--font-departure-mono);
+  }
+
+  a {
+    @apply decoration-muted-foreground decoration-[0.05em];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-wide font-geist-mono;
+  }
+
+  h1 {
+    @apply text-3xl mb-6;
+  }
+
+  h2 {
+    @apply text-2xl mb-4 mt-8;
+  }
+
+  h3 {
+    @apply text-xl mb-3 mt-6;
+  }
+
+  h4 {
+    @apply text-lg mb-2 mt-4;
+  }
+
+  h5 {
+    @apply text-base mb-2 mt-3;
+  }
+
+  h6 {
+    @apply text-sm mb-2 mt-3;
+  }
+
+  a:hover {
+    @apply text-primary;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  hr {
+    @apply border-dashed border-[0.08em] w-full my-6;
+  }
+
+  .hr-footer {
+    @apply border-dashed border-primary/40 border-[0.08em] w-full my-6;
+  }
+
+  @media (max-width: 640px) {
+    /* Remove Safari input shadow on mobile */
+    input[type='text'],
+    input[type='email'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  }
+
+  @media (hover: hover) {
+    @keyframes nudgeTopRight {
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+
+  @keyframes glowingDotPulse {
+    0% {
+      box-shadow: 0 0 0 0 hsl(var(--primary));
+    }
+    70% {
+      box-shadow: 0 0 0 6px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  @keyframes clockBlink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    30%,
+    70% {
+      opacity: 0.8;
+    }
+    40%,
+    60% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+}
+
+@layer components {
+  .prose {
+    @apply text-foreground;
+
+    .anchor {
+      @apply absolute invisible no-underline;
+      margin-left: -1em;
+      padding-right: 0.5em;
+      width: 80%;
+      max-width: 700px;
+      cursor: pointer;
+
+      &:hover {
+        @apply visible;
+      }
+
+      &:after {
+        @apply text-muted-foreground;
+        content: '#';
+      }
+    }
+
+    *:hover > .anchor {
+      @apply visible;
+    }
+
+    blockquote {
+      @apply mt-6 border-l-2 pl-6 italic;
+    }
+
+    img {
+      /* Don't apply styles to next/image */
+      @apply m-0;
+    }
+
+    p {
+      @apply my-4;
+    }
+
+    a {
+      @apply transition-all underline underline-offset-2 decoration-[0.1em];
+    }
+
+    ul {
+      @apply list-disc pl-6;
+    }
+
+    ol {
+      @apply list-decimal pl-6;
+    }
+
+    > :first-child {
+      /* Override removing top margin, causing layout shift */
+      margin-top: 1.25em !important;
+      margin-bottom: 1.25em !important;
+    }
+  }
+
+  table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .title {
+    text-wrap: balance;
+  }
+}
