@@ -20,8 +20,8 @@ export async function generateFeed() {
     link: baseUrl,
     language: 'en',
     favicon: `${baseUrl}/favicon.ico`,
-    image: `${baseUrl}/og?title=${encodeURIComponent('pushkar patel')}`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Pushkar Patel`,
+    image: `${baseUrl}/og?title=${encodeURIComponent('dhruv jaradi')}`,
+    copyright: `All rights reserved ${new Date().getFullYear()}, Dhruv Jaradi`,
     updated: new Date(),
     generator: 'Feed for Node.js',
     feedLinks: {
@@ -30,23 +30,23 @@ export async function generateFeed() {
       json: `${baseUrl}/feed.json`,
     },
     author: {
-      name: 'Pushkar Patel',
+      name: 'Dhruv Jaradi',
       link: baseUrl,
     },
   });
 
   // Add homepage
   feed.addItem({
-    title: escapeXml('pushkar patel'),
+    title: escapeXml('dhruv jaradi'),
     id: baseUrl,
     link: baseUrl,
-    description: escapeXml("pushkar's site"),
+    description: escapeXml("dhruv's site"),
     date: new Date(),
   });
 
   // Add blog index
   feed.addItem({
-    title: escapeXml('blog | pushkar patel'),
+    title: escapeXml('blog | dhruv jaradi'),
     id: `${baseUrl}/blog`,
     link: `${baseUrl}/blog`,
     description: escapeXml('some thoughts, some ideas, some rants, some code'),
