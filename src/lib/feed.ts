@@ -14,8 +14,8 @@ function escapeXml(unsafe: string): string {
 
 export async function generateFeed() {
   const feed = new Feed({
-    title: escapeXml("pushkar patel's blog"),
-    description: escapeXml('some thoughts, some ideas, some rants, some code'),
+    title: escapeXml("dhruv's blog"),
+    description: escapeXml('Think of this as my brain dump as I try to make sense of the world.'),
     id: baseUrl,
     link: baseUrl,
     language: 'en',
