@@ -75,7 +75,7 @@ export default function Footer() {
   const iconItems = [
     { label: "x", href: "https://x.com/jdhruv14", icon: <XIcon /> },
     { label: "linkedin", href: "https://www.linkedin.com/in/jdhruv143/", icon: <LinkedInIcon /> },
-    { label: "github", href: "github.com/JDhruv14", icon: <GitHubIcon /> },
+    { label: "github", href: "https://github.com/JDhruv14", icon: <GitHubIcon /> },
     { label: "mail", href: "mailto:dj1432004@email.com", icon: <MailIcon /> },
   ];
 
