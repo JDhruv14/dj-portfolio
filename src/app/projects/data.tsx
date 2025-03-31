@@ -20,8 +20,8 @@ export type Project = {
       title: "Mobile Price Classification",
       description: "A brief description of project",
       techStack: "",
-      liveLink: "https://example.com/project-two",
-      githubLink: "https://github.com/example/project-two",
+      liveLink: "",
+      githubLink: "",
     },
     {
       title: "Water Potability Classification",
