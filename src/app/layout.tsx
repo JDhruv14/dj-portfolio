@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   title: {
-    default: "dhruv jaradi",
+    default: "Dhruv Jaradi",
     template: "%s | dhruv jaradi",
   },
   description: "dhruv's site.",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "dhruv jaradi",
     description: "dhruv's site.",
     url: baseUrl,
-    siteName: "dhruv jaradi",
+    siteName: "Dhruv Jaradi",
     locale: "en_IN",
     type: "website",
     images: [
