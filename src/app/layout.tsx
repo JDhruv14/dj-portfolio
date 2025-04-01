@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${baseUrl}/og?title=${encodeURIComponent("pushkar patel")}`,
+        url: `${baseUrl}/og?title=${encodeURIComponent("dhruv jaradi")}`,
         width: 512,
         height: 512,
       },
