@@ -86,9 +86,11 @@ const DepartureMono = localFont({ src: "../../public/fonts/DepartureMono-Regular
 const fontClasses = `${GeistSans.variable} ${GeistMono.variable} ${DepartureMono.className}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Type guard to safely access the default title.
+  // Safely handle the title, checking for null first.
   const pageTitle =
-    typeof metadata.title === "object" && "default" in metadata.title
+    metadata.title == null
+      ? "Dhruv Jaradi"
+      : typeof metadata.title === "object" && "default" in metadata.title
       ? metadata.title.default
       : (metadata.title as string) || "Dhruv Jaradi";
 
