@@ -1,4 +1,3 @@
-
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -55,8 +54,6 @@ export const metadata: Metadata = {
     images: [`${baseUrl}/og?title=${encodeURIComponent("Dhruv Jaradi")}`],
     site: "@theDhruvJ",
   },
-};
-
   robots: {
     index: true,
     follow: true,
@@ -92,8 +89,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cx(fontClasses, "dark")} suppressHydrationWarning>
       <head>
-        <title>{metadata.title?.toString() || "Default Title"}</title>
-        <meta name="description" content={metadata.description ?? "Default description"} />
+        <title>{metadata.title.default}</title>
+        <meta name="description" content={metadata.description} />
         <link rel="icon" href="/images/favicon.ico" />
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
