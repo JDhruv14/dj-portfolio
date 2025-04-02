@@ -1,58 +1,58 @@
-import "./globals.css";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { GeistMono } from 'geist/font/mono';
+import { GeistSans } from 'geist/font/sans';
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 
-import { GoogleAnalytics } from "@/components/googleAnalytics";
-import ReadingProgressBar from "@/components/readingProgressBar";
-import ScrollToTopButton from "@/components/scrollToTopButton";
-import { ThemeProvider } from "@/components/themeProvider";
-import { cx } from "@/lib/utils";
+import { GoogleAnalytics } from '@/components/googleAnalytics';
+import ReadingProgressBar from '@/components/readingProgressBar';
+import ScrollToTopButton from '@/components/scrollToTopButton';
+import { ThemeProvider } from '@/components/themeProvider';
+import { cx } from '@/lib/utils';
 
-import Footer from "../components/footer";
-import { Navbar } from "../components/nav";
+import Footer from '../components/footer';
+import { Navbar } from '../components/nav';
 
-import { baseUrl } from "./sitemap";
+import { baseUrl } from './sitemap';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
   title: {
-    default: "Dhruv Jaradi",
-    template: "%s | Dhruv Jaradi",
+    default: 'Dhruv Jaradi',
+    template: '%s | Dhruv Jaradi',
   },
-  description: "Dhruv's site.",
-  authors: [{ name: "Dhruv Jaradi" }],
-  keywords: ["Dhruv", "Jaradi", "theDhruvJ"],
-  creator: "Dhruv Jaradi",
-  publisher: "Dhruv Jaradi",
+  description: "dhruv's site.",
+  authors: [{ name: 'Dhruv Jaradi' }],
+  keywords: ['thedhruv', 'dhruv', 'jaradi', 'dhruv jaradi'],
+  creator: 'Dhruv Jaradi',
+  publisher: 'Dhruv Jaradi',
   openGraph: {
-    title: "Dhruv Jaradi",
-    description: "Dhruv's site.",
+    title: 'Dhruv Jaradi',
+    description: "dhruv's site.",
     url: baseUrl,
-    siteName: "Dhruv Jaradi",
-    locale: "en_IN",
-    type: "website",
+    siteName: 'Dhruv Jaradi',
+    locale: 'en_IN',
+    type: 'website',
     images: [
       {
-        url: `${baseUrl}/og?title=${encodeURIComponent("Dhruv Jaradi")}`,
+        url: `${baseUrl}/og?title=${encodeURIComponent('Dhruv Jaradi')}`,
         width: 512,
         height: 512,
       },
     ],
   },
   twitter: {
-    title: "Dhruv Jaradi",
-    description: "Dhruv's site.",
-    creator: "@theDhruvJ",
-    card: "summary_large_image",
-    images: [`${baseUrl}/og?title=${encodeURIComponent("Dhruv Jaradi")}`],
-    site: "@theDhruvJ",
+    title: 'Dhruv Jaradi',
+    description: "dhruv's site.",
+    creator: '@thedhruv',
+    card: 'summary_large_image',
+    images: [`${baseUrl}/og?title=${encodeURIComponent('Dhruv Jaradi')}`],
+    site: '@thedhruv',
   },
   robots: {
     index: true,
@@ -60,49 +60,27 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   icons: {
     icon: [
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/images/favicon.ico",
-        href: "/images/favicon.ico",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/images/favicon.ico",
-        href: "/images/favicon.ico",
-      },
+      { url: '/images/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/images/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/images/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
     ],
-    apple: [{ url: "/images/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    apple: [{ url: '/images/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
 };
 
-const DepartureMono = localFont({ src: "../../public/fonts/DepartureMono-Regular.woff2" });
+const DepartureMono = localFont({ src: '../../public/fonts/DepartureMono-Regular.woff2' });
 const fontClasses = `${GeistSans.variable} ${GeistMono.variable} ${DepartureMono.className}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Safely handle the title, checking for null first.
-  const pageTitle =
-    metadata.title == null
-      ? "Dhruv Jaradi"
-      : typeof metadata.title === "object" && "default" in metadata.title
-      ? metadata.title.default
-      : (metadata.title as string) || "Dhruv Jaradi";
-
   return (
-    <html lang="en" className={cx(fontClasses, "dark")} suppressHydrationWarning>
-      <head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={metadata.description} />
-        <link rel="icon" href="/images/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
-      </head>
+    <html lang="en" className={cx(fontClasses, 'dark')} suppressHydrationWarning>
       <body className="antialiased font-sans" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
@@ -120,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollToTopButton />
           <Analytics />
           <SpeedInsights />
-          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ""} />
+          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''} />
         </ThemeProvider>
       </body>
     </html>
