@@ -89,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cx(fontClasses, "dark")} suppressHydrationWarning>
       <head>
-        <title>{metadata.title.default}</title>
+        <title>{metadata.title?.default || "Dhruv Jaradi"}</title>
         <meta name="description" content={metadata.description} />
         <link rel="icon" href="/images/favicon.ico" />
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
